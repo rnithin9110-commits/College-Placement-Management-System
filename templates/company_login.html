@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Company Login</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>College Placement Management System</h1>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/company-login">Company Login</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <div class="form-container">
+
+            <h2>Company Login</h2>
+
+            <form method="POST" action="/company-login">
+
+                <label>Email:</label>
+                <input type="email" name="email" required>
+
+                <label>Password:</label>
+                <input type="password" name="password" required>
+
+                <br><br>
+
+                <button type="submit">Login</button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>College Placement Management System</p>
+    </footer>
+
+</body>
+</html>

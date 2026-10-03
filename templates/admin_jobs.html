@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Jobs</title>
+</head>
+
+<body>
+
+    <h1>All Jobs</h1>
+
+    {% if jobs %}
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>ID</th>
+            <th>Company</th>
+            <th>Job Title</th>
+            <th>Skills</th>
+            <th>Location</th>
+            <th>Salary</th>
+            <th>Last Date</th>
+        </tr>
+
+        {% for job in jobs %}
+        <tr>
+            <td>{{ job.id }}</td>
+            <td>{{ job.company_name }}</td>
+            <td>{{ job.job_title }}</td>
+            <td>{{ job.required_skills }}</td>
+            <td>{{ job.location }}</td>
+            <td>{{ job.salary }}</td>
+            <td>{{ job.last_date }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    {% else %}
+
+    <p>No jobs available.</p>
+
+    {% endif %}
+
+    <br>
+
+    <a href="/admin">Back to Admin Dashboard</a>
+
+</body>
+</html>

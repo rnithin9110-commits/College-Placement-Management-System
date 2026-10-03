@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+
+    <h1>Admin Dashboard</h1>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/admin/students">Students</a>
+        <a href="/admin/companies">Companies</a>
+        <a href="/admin/jobs">Jobs</a>
+        <a href="/admin/applications">Applications</a>
+        <a href="/admin-logout">Logout</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+    <div class="features">
+
+        <div class="card">
+            <h2>{{ student_count }}</h2>
+            <p>Total Students</p>
+            <br>
+            <a href="/admin/students">View Students</a>
+        </div>
+
+        <div class="card">
+            <h2>{{ company_count }}</h2>
+            <p>Total Companies</p>
+            <br>
+            <a href="/admin/companies">View Companies</a>
+        </div>
+
+        <div class="card">
+            <h2>{{ job_count }}</h2>
+            <p>Total Jobs</p>
+            <br>
+            <a href="/admin/jobs">View Jobs</a>
+        </div>
+
+        <div class="card">
+            <h2>{{ application_count }}</h2>
+            <p>Total Applications</p>
+            <br>
+            <a href="/admin/applications">View Applications</a>
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer>
+    <p>College Placement Management System</p>
+</footer>
+
+</body>
+
+</html>

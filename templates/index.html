@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>College Placement Management System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <h1>College Placement Management System</h1>
+
+        <nav>
+
+            <a href="/">Home</a>
+
+            <a href="/register">Student Register</a>
+
+            <a href="/company-register">Company Register</a>
+
+            <a href="/jobs">Jobs</a>
+
+            <a href="/login">Student Login</a>
+
+            <a href="/company-login">Company Login</a>
+
+            <a href="/admin-login">Admin Login</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main>
+
+        <!-- Welcome Section -->
+
+        <section class="hero">
+
+            <h2>Welcome to the Placement Portal</h2>
+
+            <p>
+                A complete platform for students, companies and
+                placement administrators.
+            </p>
+
+            <br>
+
+
+            <!-- Login Buttons -->
+
+            <a href="/login">
+                <button>Student Login</button>
+            </a>
+
+            <a href="/company-login">
+                <button>Company Login</button>
+            </a>
+
+            <a href="/admin-login">
+                <button>Admin Login</button>
+            </a>
+
+        </section>
+
+
+        <!-- =========================
+             FEATURES
+        ========================== -->
+
+        <section class="features">
+
+
+            <!-- Student Card -->
+
+            <div class="card">
+
+                <h3>👨‍🎓 Students</h3>
+
+                <p>
+                    Register your profile, search jobs,
+                    check eligibility and apply for
+                    placement opportunities.
+                </p>
+
+                <br>
+
+                <a href="/register">
+                    Student Registration
+                </a>
+
+            </div>
+
+
+            <!-- Company Card -->
+
+            <div class="card">
+
+                <h3>🏢 Companies</h3>
+
+                <p>
+                    Register your company, post job
+                    opportunities and view student applicants.
+                </p>
+
+                <br>
+
+                <a href="/company-register">
+                    Company Registration
+                </a>
+
+            </div>
+
+
+            <!-- Jobs Card -->
+
+            <div class="card">
+
+                <h3>💼 Jobs</h3>
+
+                <p>
+                    Browse available jobs and internships
+                    posted by registered companies.
+                </p>
+
+                <br>
+
+                <a href="/jobs">
+                    View Available Jobs
+                </a>
+
+            </div>
+
+
+            <!-- Admin Card -->
+
+            <div class="card">
+
+                <h3>👨‍💼 Admin</h3>
+
+                <p>
+                    Manage students, companies, jobs
+                    and placement applications.
+                </p>
+
+                <br>
+
+                <a href="/admin-login">
+                    Admin Login
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             STUDENT COUNT
+        ========================== -->
+
+        <section class="hero">
+
+            <h3>Total Registered Students</h3>
+
+            <h2>{{ student_count }}</h2>
+
+            <p>
+                Students registered in the placement system.
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 College Placement Management System
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

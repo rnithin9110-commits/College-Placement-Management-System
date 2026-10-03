@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>College Placement Management System</h1>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/jobs">View Jobs</a>
+            <a href="/my-applications">My Applications</a>
+            <a href="/logout">Logout</a>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <div class="form-container">
+
+            <h2>Student Dashboard</h2>
+
+            <h3>Welcome, {{ student.name }}!</h3>
+
+            <br>
+
+            <p><strong>Email:</strong> {{ student.email }}</p>
+            <p><strong>Phone:</strong> {{ student.phone }}</p>
+            <p><strong>Department:</strong> {{ student.department }}</p>
+            <p><strong>Graduation Year:</strong> {{ student.graduation_year }}</p>
+            <p><strong>CGPA:</strong> {{ student.cgpa }}</p>
+
+            <br>
+
+            <a href="/jobs">
+                <button>View Jobs</button>
+            </a>
+
+            <a href="/my-applications">
+                <button>My Applications</button>
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>College Placement Management System</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Posted Jobs</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>Company Dashboard</h1>
+
+    <nav>
+        <a href="/company-dashboard">Dashboard</a>
+        <a href="/post-job">Post Job</a>
+        <a href="/company-logout">Logout</a>
+    </nav>
+</header>
+
+<main>
+
+    <h2>My Posted Jobs</h2>
+
+    {% if jobs %}
+
+        {% for job in jobs %}
+
+        <div class="card">
+
+            <h3>{{ job.job_title }}</h3>
+
+            <p><strong>Skills:</strong> {{ job.required_skills }}</p>
+            <p><strong>Location:</strong> {{ job.location }}</p>
+            <p><strong>Salary:</strong> {{ job.salary }}</p>
+            <p><strong>Minimum CGPA:</strong> {{ job.min_cgpa }}</p>
+            <p><strong>Department:</strong> {{ job.department }}</p>
+            <p><strong>Last Date:</strong> {{ job.last_date }}</p>
+            <br>
+
+<a href="/company/job/{{ job.id }}/edit">
+    <button>Edit</button>
+</a>
+
+<form method="POST"
+      action="/company/job/{{ job.id }}/delete"
+      style="display:inline;">
+
+    <button type="submit">Delete</button>
+
+</form>
+
+        </div>
+
+        <br>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p>You have not posted any jobs.</p>
+
+    {% endif %}
+
+</main>
+
+</body>
+</html>

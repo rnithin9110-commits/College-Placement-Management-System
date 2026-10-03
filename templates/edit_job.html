@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Job</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+
+    <h1>Edit Job</h1>
+
+    <nav>
+        <a href="/company-dashboard">Dashboard</a>
+        <a href="/company/jobs">My Jobs</a>
+        <a href="/company-logout">Logout</a>
+    </nav>
+
+</header>
+
+<main>
+
+    <div class="form-container">
+
+        <h2>Edit Job</h2>
+
+        <form method="POST">
+
+            <label>Job Title:</label>
+            <input type="text"
+                   name="job_title"
+                   value="{{ job.job_title }}"
+                   required>
+
+            <label>Job Description:</label>
+            <textarea name="job_description">{{ job.job_description }}</textarea>
+
+            <label>Required Skills:</label>
+            <input type="text"
+                   name="required_skills"
+                   value="{{ job.required_skills }}">
+
+            <label>Location:</label>
+            <input type="text"
+                   name="location"
+                   value="{{ job.location }}">
+
+            <label>Salary:</label>
+            <input type="text"
+                   name="salary"
+                   value="{{ job.salary }}">
+
+            <label>Last Date:</label>
+            <input type="date"
+                   name="last_date"
+                   value="{{ job.last_date }}">
+
+            <label>Minimum CGPA:</label>
+            <input type="number"
+                   name="min_cgpa"
+                   step="0.01"
+                   min="0"
+                   max="10"
+                   value="{{ job.min_cgpa }}">
+
+            <label>Department:</label>
+            <input type="text"
+                   name="department"
+                   value="{{ job.department }}">
+
+            <br><br>
+
+            <button type="submit">Update Job</button>
+
+        </form>
+
+    </div>
+
+</main>
+
+</body>
+
+</html>

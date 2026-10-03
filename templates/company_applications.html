@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Job Applicants</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Job Applicants</h1>
+
+        <nav>
+            <a href="/company-dashboard">Dashboard</a>
+            <a href="/company/jobs">My Jobs</a>
+            <a href="/company-logout">Logout</a>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <h2>Applicants</h2>
+
+        <br>
+
+        {% if applications %}
+
+        <table border="1" cellpadding="10">
+
+            <tr>
+                <th>Student Name</th>
+                <th>Email</th>
+                <th>Department</th>
+                <th>CGPA</th>
+                <th>Job</th>
+                <th>Status</th>
+            </tr>
+
+            {% for application in applications %}
+
+            <tr>
+                <td>{{ application.student_name }}</td>
+                <td>{{ application.student_email }}</td>
+                <td>{{ application.department }}</td>
+                <td>{{ application.cgpa }}</td>
+                <td>{{ application.job_title }}</td>
+                <td>
+
+    <form method="POST"
+          action="/company/application/{{ application.id }}/status">
+
+        <select name="status">
+
+            <option value="Applied"
+                {% if application.status == "Applied" %}selected{% endif %}>
+                Applied
+            </option>
+
+            <option value="Shortlisted"
+                {% if application.status == "Shortlisted" %}selected{% endif %}>
+                Shortlisted
+            </option>
+
+            <option value="Selected"
+                {% if application.status == "Selected" %}selected{% endif %}>
+                Selected
+            </option>
+
+            <option value="Rejected"
+                {% if application.status == "Rejected" %}selected{% endif %}>
+                Rejected
+            </option>
+
+        </select>
+
+        <button type="submit">Update</button>
+
+    </form>
+
+</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+        {% else %}
+
+        <p>No students have applied yet.</p>
+
+        {% endif %}
+
+    </main>
+
+</body>
+
+</html>

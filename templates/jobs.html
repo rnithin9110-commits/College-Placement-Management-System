@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Available Jobs</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>College Placement Management System</h1>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/my-applications">My Applications</a>
+            <a href="/logout">Logout</a>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <h1>Available Jobs</h1>
+
+        <br>
+
+        <!-- Search -->
+        <form method="GET" action="/jobs">
+
+            <input
+                type="text"
+                name="search"
+                placeholder="Search job, skill or location..."
+                value="{{ search }}"
+            >
+
+            <button type="submit">Search</button>
+
+        </form>
+
+        <br>
+
+
+        {% if jobs %}
+
+            {% for job in jobs %}
+
+                <div class="card">
+
+                    <h2>{{ job.job_title }}</h2>
+
+                    <p>
+                        <strong>Company:</strong>
+                        {{ job.company_name }}
+                    </p>
+
+                    <p>
+                        <strong>Description:</strong>
+                        {{ job.job_description }}
+                    </p>
+                    <p>
+                    <strong>Minimum CGPA:</strong>
+                    {{ job.min_cgpa }}
+                    </p>
+                    <p>
+    <strong>Department:</strong>
+    {{ job.department }}
+</p>
+                    <p>
+                        <strong>Skills:</strong>
+                        {{ job.required_skills }}
+                    </p>
+
+                    <p>
+                        <strong>Location:</strong>
+                        {{ job.location }}
+                    </p>
+
+                    <p>
+                        <strong>Salary:</strong>
+                        {{ job.salary }}
+                    </p>
+
+                    <p>
+                        <strong>Last Date:</strong>
+                        {{ job.last_date }}
+                    </p>
+
+                    <br>
+
+                    {% if student_cgpa >= job.min_cgpa %}
+
+   <p><strong>✅ Eligible to Apply</strong></p>
+    {% if student_cgpa >= job.min_cgpa %}
+
+    <p>
+        <strong>✅ Eligible to Apply</strong>
+    </p>
+
+    <form method="POST" action="/apply/{{ job.id }}">
+        <button type="submit">Apply</button>
+    </form>
+
+{% else %}
+
+    <p>
+        <strong>❌ Not Eligible</strong>
+    </p>
+
+{% endif %}
+
+{% else %}
+
+    <p><strong>❌ You are Not Eligible</strong></p>
+
+{% endif %}
+
+                </div>
+
+                <br>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p>No jobs found.</p>
+
+        {% endif %}
+
+    </main>
+
+
+    <footer>
+        <p>College Placement Management System</p>
+    </footer>
+
+</body>
+
+</html>

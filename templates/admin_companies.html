@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Companies</title>
+</head>
+
+<body>
+
+    <h1>All Companies</h1>
+
+    {% if companies %}
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>ID</th>
+            <th>Company Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Location</th>
+        </tr>
+
+        {% for company in companies %}
+        <tr>
+            <td>{{ company.id }}</td>
+            <td>{{ company.company_name }}</td>
+            <td>{{ company.email }}</td>
+            <td>{{ company.phone }}</td>
+            <td>{{ company.location }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    {% else %}
+
+    <p>No companies registered yet.</p>
+
+    {% endif %}
+
+    <br>
+
+    <a href="/admin">Back to Admin Dashboard</a>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Company Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>College Placement Management System</h1>
+
+    <nav>
+
+        <a href="/">Home</a>
+
+        <a href="/company-dashboard">Dashboard</a>
+
+        <a href="/post-job">Post Job</a>
+
+        <a href="/company/jobs">My Jobs</a>
+
+        <a href="/company/applications">Applicants</a>
+
+        <a href="/company-logout">Logout</a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <section class="hero">
+
+        <h2>Company Dashboard</h2>
+
+        <p>
+            Welcome, {{ company.company_name }}!
+        </p>
+
+    </section>
+
+
+    <section class="features">
+
+        <div class="card">
+
+            <h3>🏢 Company Information</h3>
+
+            <p>
+                <strong>Name:</strong>
+                {{ company.company_name }}
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                {{ company.email }}
+            </p>
+
+            <p>
+                <strong>Phone:</strong>
+                {{ company.phone }}
+            </p>
+
+            <p>
+                <strong>Location:</strong>
+                {{ company.location }}
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>💼 Post a Job</h3>
+
+            <p>
+                Create a new job or internship opportunity
+                for students.
+            </p>
+
+            <br>
+
+            <a href="/post-job">
+                <button>Post Job</button>
+            </a>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>📋 My Posted Jobs</h3>
+
+            <p>
+                View the jobs posted by your company.
+            </p>
+
+            <br>
+
+            <a href="/company/jobs">
+                <button>View My Jobs</button>
+            </a>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>👨‍🎓 Applicants</h3>
+
+            <p>
+                View students who have applied to your jobs.
+            </p>
+
+            <br>
+
+            <a href="/company/applications">
+                <button>View Applicants</button>
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        College Placement Management System
+    </p>
+
+</footer>
+
+</body>
+
+</html>

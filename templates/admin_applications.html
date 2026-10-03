@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Applications</title>
+</head>
+
+<body>
+
+    <h1>All Applications</h1>
+
+    {% if applications %}
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>ID</th>
+            <th>Student</th>
+            <th>Email</th>
+            <th>Job</th>
+            <th>Company</th>
+            <th>Applied Date</th>
+            <th>Status</th>
+        </tr>
+
+        {% for application in applications %}
+        <tr>
+            <td>{{ application.id }}</td>
+            <td>{{ application.student_name }}</td>
+            <td>{{ application.student_email }}</td>
+            <td>{{ application.job_title }}</td>
+            <td>{{ application.company_name }}</td>
+            <td>{{ application.application_date }}</td>
+           <td>
+
+    <form method="POST"
+          action="/admin/application/{{ application.id }}/status">
+
+        <select name="status">
+
+            <option value="Applied"
+                {% if application.status == "Applied" %}selected{% endif %}>
+                Applied
+            </option>
+
+            <option value="Shortlisted"
+                {% if application.status == "Shortlisted" %}selected{% endif %}>
+                Shortlisted
+            </option>
+
+            <option value="Selected"
+                {% if application.status == "Selected" %}selected{% endif %}>
+                Selected
+            </option>
+
+            <option value="Rejected"
+                {% if application.status == "Rejected" %}selected{% endif %}>
+                Rejected
+            </option>
+
+        </select>
+
+        <button type="submit">Update</button>
+
+    </form>
+
+</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    {% else %}
+
+    <p>No applications found.</p>
+
+    {% endif %}
+
+    <br>
+
+    <a href="/admin">Back to Admin Dashboard</a>
+
+</body>
+</html>
